@@ -1,0 +1,13 @@
+{
+    "name": "proxy-pages",
+    "version": "1.0.0",
+    "license": "MIT",
+    "scripts": {
+        "fetch-json": "tsx ./scripts/fetch-json.ts"
+    },
+    "dependencies": {
+        "@types/node": "^22.10.2",
+        "node-fetch": "^3.3.2",
+        "tsx": "^4.19.2"
+    }
+}
