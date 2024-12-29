@@ -19,6 +19,7 @@ jobs:
         run: npm run fetch-json
         env:
           FETCH_URL: ${{ vars.FETCH_URL }}
+          FILE_NAME: data.json
 
       - name: Upload static files as artifact
         id: deployment

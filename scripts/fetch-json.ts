@@ -4,6 +4,7 @@ import path from 'path';
 
 // Get URL from environment variable
 const url = process.env.FETCH_URL;
+const fileName = process.env.FILE_NAME;
 
 // Fetch JSON data and save it to a file
 async function fetchAndSaveJson() {
@@ -12,13 +13,18 @@ async function fetchAndSaveJson() {
             console.error('URL is not specified.');
             process.exit(1);
         }
+        if (!fileName) {
+            console.error('File name is not specified.');
+            process.exit(1);
+        }
+
         const response = await fetch(url);
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
         const data = await response.json();
         const outputDir = path.resolve(__dirname, '../outputs');
-        const outputPath = path.join(outputDir, 'data.json');
+        const outputPath = path.join(outputDir, fileName);
 
         // Create output directory if it does not exist
         if (!fs.existsSync(outputDir)) {
